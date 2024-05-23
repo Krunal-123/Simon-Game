@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 <style>
     body{
@@ -27,7 +28,7 @@
     }
     .con-of-box{
       width: 400px;
-      margin: auto;
+      margin: 50px auto;
       display: grid;
       grid-template-columns: auto auto;
     }
@@ -111,16 +112,20 @@
     <div class="audio" style="display: none;">
       <audio id="clk" controls>
         <source src="./auidofiles/click.mp3" type="audio/mpeg">
-    </audio>
-    <audio id="error" controls>
-      <source src="./auidofiles/error.mp3" type="audio/mpeg">
-  </audio>
-  <audio id="win" controls>
-    <source src="./auidofiles/win.mp3" type="audio/mpeg">
-</audio>
+      </audio>
+      <audio id="error" controls>
+        <source src="./auidofiles/error.mp3" type="audio/mpeg">
+      </audio>
+      <audio id="win" controls>
+        <source src="./auidofiles/win.mp3" type="audio/mpeg">
+      </audio>
     </div>
   </div>
+  <footer class="fixed-bottom text-center">
+    <h1>Made By 🤡<ss>k</ss><ii>r</ii><m>u</m><o>n</o><n>a</n><g>l</g></h1>
+  </footer>
 </body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <script>
 let gamesqe=[]
 let usersqe=[]
@@ -210,7 +215,7 @@ document.addEventListener("keypress",function(e){
       setTimeout(()=>{id.classList.add("gameflash")},500)
       setTimeout(()=>{ id.classList.remove("gameflash")},750)
       gamesqe.push(color[randomINDEX])
-      lvl=10
+      lvl++
       head.innerText="LEVEl: "+lvl
     }
   }
