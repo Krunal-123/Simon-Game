@@ -6,10 +6,60 @@ let startValue=true
 let head=document.querySelector("h3")
 let color=["NONE","green","red","yellow","blue"]
 let user=document.querySelector(".con-of-box")
+var second=0
+
+let btn=document.querySelector(".btn")
+btn.addEventListener("click",function(e){
+  if (startValue==true) {
+    second=0
+    startValue=false
+      let randomINDEX=Math.floor(Math.random()*4+1)
+      let id=document.getElementById(color[randomINDEX])
+      setTimeout(()=>{id.classList.add("gameflash")},500)
+      setTimeout(()=>{ id.classList.remove("gameflash")},750)
+      gamesqe.push(color[randomINDEX])
+      lvl++
+      head.innerText="LEVEl: "+lvl
+      var T=setInterval(()=>{ 
+        second++
+        if(second>3&&lvl>5){
+          let audioElement = document.getElementById("error")
+          audioElement.play();
+          head.innerHTML=`<span>Time Up</span><br>Your Score Level is: ${lvl}<br><span>Better Luck Next Time🤦‍♂️</span>`
+          startValue=true
+          maxscore.push(lvl)
+            let max=Math.max(...maxscore)
+            let btn=document.querySelector(".btn")
+            btn.classList.remove("btn-success")
+            btn.classList.add("btn-danger")
+            btn.innerText="Restart"
+            let con=document.querySelector(".con")
+            let h2=document.querySelector("h2")
+            h2.innerText="HIGH SCORE LVL IS: "+max
+            con.append(h2)
+            lvl=0
+            gamesqe=[]
+            usersqe=[]
+            clearInterval(T)
+        }
+      },1000)
+  }
+})
+// main logic
+function checkSequence() {
+  for (let i = 0; i < usersqe.length; i++) {
+    if (usersqe[i] !== gamesqe[i]) {
+      return false;
+    }
+  }
+  return true; 
+}
+// main logic end
 
 user.addEventListener("click",function(e){
   if(e.target.id=="green"||e.target.id=="red"||e.target.id=="yellow"||e.target.id=="blue"){
   if (startValue!=true){
+    second=0
     let audioElement = document.getElementById("clk")
     audioElement.play();
     let box=e.target
@@ -18,10 +68,16 @@ user.addEventListener("click",function(e){
     // console.log("USER="+usersqe)
     box.classList.add("userflash")
     setTimeout(()=>{box.classList.remove("userflash")},150)
-    // if (JSON.stringify(gamesqe)===JSON.stringify(usersqe)){
     if (checkSequence()){
     if (usersqe.length===gamesqe.length){
           lvl++
+          if(lvl>5){
+            let p=document.createElement("p")
+            p.innerHTML="<b>AFTER LVL 5<br>3sec for Per Click<br>🤡</b>"
+            p.style.color="rgb(0, 255, 30)"
+            let btn=document.querySelector(".btn")
+            btn.insertAdjacentElement("beforebegin",p)
+          }
           if (lvl>=8&&lvl<15) {
             head.innerHTML="LEVEl: "+lvl+"<br>WOW, Keep It Up 😁👍🔥"
           }
@@ -34,7 +90,7 @@ user.addEventListener("click",function(e){
           else if (lvl>=20) {
             let audioElement = document.getElementById("win")
             audioElement.play();
-            head.innerHTML="LEVEl: "+lvl+"<br><span2>🎉🤡WIN The Game😎😍🎉</span2><br>Press Restart Button To Start The New Game"
+            head.innerHTML="LEVEl: "+lvl+"<br><span2>🎉🤡WIN The Game😎😍🎉</span2><br>Press Start Button To Start The New Game"
             startValue=true
             maxscore.push(lvl)
             let max=Math.max(...maxscore)
@@ -49,11 +105,11 @@ user.addEventListener("click",function(e){
             lvl=0
             gamesqe=[]
             usersqe=[]
+            clearInterval(T)
           }
           else{
             head.innerText="LEVEl: "+lvl
           }
-
           let randomINDEX=Math.floor(Math.random()*4+1)
           let id=document.getElementById(color[randomINDEX])
           setTimeout(()=>{id.classList.add("gameflash")},750)
@@ -65,9 +121,8 @@ user.addEventListener("click",function(e){
       }
       else{
           let audioElement = document.getElementById("error")
-          // audioElement.playbackRate = 1;
           audioElement.play();
-          head.innerHTML=`<span>GAME OVER</span><br>Your Score Level is: ${lvl}<br><span>Press Restart Button To Play Again</span>`
+          head.innerHTML=`<span>GAME OVER💀</span><br>Your Score Level is: ${lvl}<br><span>Press Restart Button To Play Again</span>`
           startValue=true
           maxscore.push(lvl)
             let max=Math.max(...maxscore)
@@ -86,27 +141,3 @@ user.addEventListener("click",function(e){
     }
   }
 })
-let btn=document.querySelector(".btn")
-btn.addEventListener("click",function(e){
-  if (startValue==true) {
-    startValue=false
-    // if (e.key=="Enter") {
-      let randomINDEX=Math.floor(Math.random()*4+1)
-      let id=document.getElementById(color[randomINDEX])
-      setTimeout(()=>{id.classList.add("gameflash")},500)
-      setTimeout(()=>{ id.classList.remove("gameflash")},750)
-      gamesqe.push(color[randomINDEX])
-      lvl++
-      head.innerText="LEVEl: "+lvl
-    // }
-  }
-})
-// main logic
-function checkSequence() {
-            for (let i = 0; i < usersqe.length; i++) {
-                if (usersqe[i] !== gamesqe[i]) {
-                    return false;
-                }
-            }
-            return true;
-        }
