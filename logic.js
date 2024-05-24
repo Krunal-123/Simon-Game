@@ -22,16 +22,16 @@ user.addEventListener("click",function(e){
     if (checkSequence()){
     if (usersqe.length===gamesqe.length){
           lvl++
-          if (lvl>=10&&lvl<15) {
+          if (lvl>=8&&lvl<15) {
             head.innerHTML="LEVEl: "+lvl+"<br>WOW, Keep It Up 😁👍🔥"
           }
-          else if (lvl>=15&&lvl<20) {
+          else if (lvl>=15&&lvl<18) {
             head.innerHTML="LEVEl: "+lvl+"<br>Great, Your Memoery Skills Are Incredible! 😵👌"
           }
-          else if (lvl>=20&&lvl<25) {
+          else if (lvl>=18&&lvl<20) {
             head.innerHTML="LEVEl: "+lvl+"<br>Your Are Genius Person 🤯😵‍💫"
           }
-          else if (lvl>=25) {
+          else if (lvl>=20) {
             let audioElement = document.getElementById("win")
             audioElement.play();
             head.innerHTML="LEVEl: "+lvl+"<br><span2>🎉🤡WIN The Game😎😍🎉</span2><br>Press Restart Button To Start The New Game"
