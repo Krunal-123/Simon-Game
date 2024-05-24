@@ -10,9 +10,10 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 <style>
-    body{
-        margin: 0;
-        padding: 0;
+  body{
+    height: 100vh;
+        margin: 0px;
+        padding: 0px;
         font-family: "Oswald", sans-serif;
         font-optical-sizing: auto;
         font-style: normal;
@@ -101,7 +102,7 @@
 <body>
   <div class="container">
     <h1><ss>S</ss><ii>i</ii><m>m</m><o>o</o><n>n</n> <g>G</g><a>a</a><m>m</m><e>e</e></h1>
-    <h3>Press Enter Key To Start Game</h3>
+    <h3>Press Start Button To Start Game</h3>
     <div class="con-of-box">
       <div class="box box1" type="button" id="green"></div>
       <div class="box box2" type="button" id="red"></div>
@@ -155,7 +156,7 @@ user.addEventListener("click",function(e){
     if (usersqe.length===gamesqe.length){
           lvl++
           if (lvl>=5&&lvl<7) {
-            head.innerHTML="LEVEl: "+lvl+"<br>WOW, Sharp Memoery 😁👍"
+            head.innerHTML="LEVEl: "+lvl+"<br>WOW, Keep It Up 😁👍🔥"
           }
           else if (lvl>=7&&lvl<10) {
             head.innerHTML="LEVEl: "+lvl+"<br>Great, Your Memoery Skills Are Incredible! 😵👌"
@@ -166,7 +167,7 @@ user.addEventListener("click",function(e){
           else if (lvl>=12) {
             let audioElement = document.getElementById("win")
             audioElement.play();
-            head.innerHTML="LEVEl: "+lvl+"<br><span2>🎉🤡GAME, The End😎😍🎉</span2><br>Press Enter To Start The New Game"
+            head.innerHTML="LEVEl: "+lvl+"<br><span2>🎉🤡GAME, The End😎😍🎉</span2><br>Press Restart Button To Start The New Game"
             startValue=true
             maxscore.push(lvl)
             let max=Math.max(...maxscore)
@@ -195,7 +196,7 @@ user.addEventListener("click",function(e){
           let audioElement = document.getElementById("error")
           // audioElement.playbackRate = 1;
           audioElement.play();
-          head.innerHTML=`GAME OVER<br>Your Score Level is: ${lvl}<br><span>Press Enter For Restart The Game</span>`
+          head.innerHTML=`GAME OVER<br>Your Score Level is: ${lvl}<br><span>Press Restart Button To Play Again</span>`
           startValue=true
           maxscore.push(lvl)
             let max=Math.max(...maxscore)
