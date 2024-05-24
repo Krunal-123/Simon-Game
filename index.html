@@ -24,20 +24,21 @@
     h1{
       font-size: 2.5rem;
     }
-    .container{
+    .con{
+      width: 300px;
+      margin: 5% auto;
       text-align: center;
     }
     .con-of-box{
-      width: 400px;
-      margin: 5% auto;
+      /* width: 300px; */
       display: grid;
       grid-template-columns: auto auto;
     }
     .box{ 
     padding: 0px;
     margin: 0px;
-        width: 200px;
-        height: 200px;
+        width: 150px;
+        height: 150px;
         border: 5px solid black;
     }
     .box1{
@@ -97,10 +98,9 @@
     e{
       color: rgb(236, 240, 0);
     }
-   
 </style>
 <body>
-  <div class="container">
+  <div class="con">
     <h1><ss>S</ss><ii>i</ii><m>m</m><o>o</o><n>n</n> <g>G</g><a>a</a><m>m</m><e>e</e></h1>
     <h3>Press Start Button To Start Game</h3>
     <div class="con-of-box">
@@ -109,9 +109,7 @@
       <div class="box box3" type="button" id="yellow"></div>
       <div class="box box4" type="button" id="blue"></div>
     </div>
-
     <button class="btn btn-success px-5 my-2">Start</button>
-
     <h2></h2>
     <div class="audio" style="display: none;">
       <audio id="clk" controls>
@@ -125,7 +123,7 @@
       </audio>
     </div>
   </div>
-  <footer class="fixed-bottom text-center">
+  <footer class="fixed-bottom text-center my-1">
     <h1>Made By 🤡<ss>k</ss><ii>r</ii><m>u</m><o>n</o><n>a</n><g>l</g></h1>
   </footer>
 </body>
@@ -167,14 +165,18 @@ user.addEventListener("click",function(e){
           else if (lvl>=12) {
             let audioElement = document.getElementById("win")
             audioElement.play();
-            head.innerHTML="LEVEl: "+lvl+"<br><span2>🎉🤡GAME, The End😎😍🎉</span2><br>Press Restart Button To Start The New Game"
+            head.innerHTML="LEVEl: "+lvl+"<br><span2>🎉🤡WIN The Game😎😍🎉</span2><br>Press Restart Button To Start The New Game"
             startValue=true
             maxscore.push(lvl)
             let max=Math.max(...maxscore)
-            let con=document.querySelector(".container")
+            let con=document.querySelector(".con")
             let h2=document.querySelector("h2")
             h2.innerText="WIN SCORE LEVEL IS: "+max
             con.append(h2)
+            let btn=document.querySelector(".btn")
+            btn.classList.remove("btn-danger")
+            btn.classList.add("btn-success")
+            btn.innerText="Start New Game"
             lvl=0
             gamesqe=[]
             usersqe=[]
@@ -196,7 +198,7 @@ user.addEventListener("click",function(e){
           let audioElement = document.getElementById("error")
           // audioElement.playbackRate = 1;
           audioElement.play();
-          head.innerHTML=`GAME OVER<br>Your Score Level is: ${lvl}<br><span>Press Restart Button To Play Again</span>`
+          head.innerHTML=`<span>GAME OVER</span><br>Your Score Level is: ${lvl}<br><span>Press Restart Button To Play Again</span>`
           startValue=true
           maxscore.push(lvl)
             let max=Math.max(...maxscore)
@@ -204,7 +206,7 @@ user.addEventListener("click",function(e){
             btn.classList.remove("btn-success")
             btn.classList.add("btn-danger")
             btn.innerText="Restart"
-            let con=document.querySelector(".container")
+            let con=document.querySelector(".con")
             let h2=document.querySelector("h2")
             h2.innerText="HIGH SCORE LVL IS: "+max
             con.append(h2)
@@ -225,7 +227,7 @@ btn.addEventListener("click",function(e){
       setTimeout(()=>{id.classList.add("gameflash")},500)
       setTimeout(()=>{ id.classList.remove("gameflash")},750)
       gamesqe.push(color[randomINDEX])
-      lvl++
+      lvl=10
       head.innerText="LEVEl: "+lvl
     // }
   }
