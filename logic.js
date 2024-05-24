@@ -22,13 +22,13 @@ user.addEventListener("click",function(e){
     if (checkSequence()){
     if (usersqe.length===gamesqe.length){
           lvl++
-          if (lvl>=5&&lvl<10) {
+          if (lvl>=10&&lvl<15) {
             head.innerHTML="LEVEl: "+lvl+"<br>WOW, Keep It Up 😁👍🔥"
           }
-          else if (lvl>=7&&lvl<15) {
+          else if (lvl>=15&&lvl<20) {
             head.innerHTML="LEVEl: "+lvl+"<br>Great, Your Memoery Skills Are Incredible! 😵👌"
           }
-          else if (lvl>=10&&lvl<20) {
+          else if (lvl>=20&&lvl<25) {
             head.innerHTML="LEVEl: "+lvl+"<br>Your Are Genius Person 🤯😵‍💫"
           }
           else if (lvl>=25) {
