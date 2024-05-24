@@ -87,7 +87,7 @@ user.addEventListener("click",function(e){
           else if (lvl>=18&&lvl<20) {
             head.innerHTML="LEVEl: "+lvl+"<br>Your Are Genius Person 🤯😵‍💫"
           }
-          else if (lvl>=6) {
+          else if (lvl>=20) {
             let audioElement = document.getElementById("win")
             audioElement.play();
             head.innerHTML="LEVEl: "+lvl+"<br><span2>🎉🤡WIN The Game😎😍🎉</span2><br>Press Start Button To Start The New Game"
