@@ -72,7 +72,7 @@ user.addEventListener("click",function(e){
     if (usersqe.length===gamesqe.length){
           lvl++
           if(lvl>5){
-            let p=document.createElement("p")
+            let p=document.querySelector("p")
             p.innerHTML="<b>AFTER LVL 5<br>3sec for Per Click<br>🤡</b>"
             p.style.color="rgb(0, 255, 30)"
             let btn=document.querySelector(".btn")
