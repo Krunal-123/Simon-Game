@@ -33,8 +33,8 @@
       grid-template-columns: auto auto;
     }
     .box{ 
-    padding: 0;
-    margin: 0;
+    padding: 0px;
+    margin: 0px;
         width: 200px;
         height: 200px;
         border: 5px solid black;
@@ -108,6 +108,9 @@
       <div class="box box3" type="button" id="yellow"></div>
       <div class="box box4" type="button" id="blue"></div>
     </div>
+
+    <button class="btn btn-success px-5">Start</button>
+
     <h2></h2>
     <div class="audio" style="display: none;">
       <audio id="clk" controls>
@@ -194,6 +197,10 @@ user.addEventListener("click",function(e){
           startValue=true
           maxscore.push(lvl)
             let max=Math.max(...maxscore)
+            let btn=document.querySelector(".btn")
+            btn.classList.remove("btn-success")
+            btn.classList.add("btn-danger")
+            btn.innerText="Restart"
             let con=document.querySelector(".container")
             let h2=document.querySelector("h2")
             h2.innerText="HIGH SCORE LVL IS: "+max
@@ -205,11 +212,11 @@ user.addEventListener("click",function(e){
     }
   }
 })
-
-document.addEventListener("keypress",function(e){
+let btn=document.querySelector(".btn")
+btn.addEventListener("click",function(e){
   if (startValue==true) {
     startValue=false
-    if (e.key=="Enter") {
+    // if (e.key=="Enter") {
       let randomINDEX=Math.floor(Math.random()*4+1)
       let id=document.getElementById(color[randomINDEX])
       setTimeout(()=>{id.classList.add("gameflash")},500)
@@ -217,7 +224,7 @@ document.addEventListener("keypress",function(e){
       gamesqe.push(color[randomINDEX])
       lvl++
       head.innerText="LEVEl: "+lvl
-    }
+    // }
   }
 })
 // main logic
