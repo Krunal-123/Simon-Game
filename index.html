@@ -109,12 +109,12 @@
       <div class="box box4" type="button" id="blue"></div>
     </div>
 
-    <button class="btn btn-success px-5">Start</button>
+    <button class="btn btn-success px-5 my-2">Start</button>
 
     <h2></h2>
     <div class="audio" style="display: none;">
       <audio id="clk" controls>
-        <source src="./auidofiles/click.mp3" type="audio/mpeg">
+        <source src="./auidofiles/click2.mp3" type="audio/mpeg">
       </audio>
       <audio id="error" controls>
         <source src="./auidofiles/error.mp3" type="audio/mpeg">
@@ -142,6 +142,8 @@ let user=document.querySelector(".con-of-box")
 user.addEventListener("click",function(e){
   if(e.target.id=="green"||e.target.id=="red"||e.target.id=="yellow"||e.target.id=="blue"){
   if (startValue!=true){
+    let audioElement = document.getElementById("clk")
+    audioElement.play();
     let box=e.target
     let id=box.id
     usersqe.push(id)
