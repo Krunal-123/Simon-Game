@@ -117,7 +117,7 @@ user.addEventListener("click",function(e){
             h3.innerText="WIN SCORE LEVEL IS: "+max
             con.append(h3)
             let btn=document.querySelector(".btn")
-            btn.classList.remove("btn-dangerh3
+            btn.classList.remove("btn-danger")
             btn.classList.add("btn-success")
             btn.innerText="Start New Game"
             lvl=0
