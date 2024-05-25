@@ -20,31 +20,40 @@ btn.addEventListener("click",function(e){
       gamesqe.push(color[randomINDEX])
       lvl++
       head.innerText="LEVEl: "+lvl
-      var T=setInterval(()=>{ 
-        second++
-        if(second>3&&lvl>5){
-          let audioElement = document.getElementById("error")
-          audioElement.play();
-          head.innerHTML=`<span>Time Up</span><br>Your Score Level is: ${lvl}<br><span>Better Luck Next Time🤦‍♂️</span>`
-          startValue=true
-          maxscore.push(lvl)
-            let max=Math.max(...maxscore)
-            let btn=document.querySelector(".btn")
-            btn.classList.remove("btn-success")
-            btn.classList.add("btn-danger")
-            btn.innerText="Restart"
-            let con=document.querySelector(".con")
-            let h2=document.querySelector("h2")
-            h2.innerText="HIGH SCORE LVL IS: "+max
-            con.append(h2)
-            lvl=0
-            gamesqe=[]
-            usersqe=[]
-            clearInterval(T)
-        }
-      },1000)
   }
 })
+
+// Sec Counter
+
+  var T=setInterval(()=>{ 
+    second++
+    console.log(second);
+    Check()
+  },1000)
+
+    // Check sec for conditions
+    let Check=()=>{
+      if(second>3&&lvl>4){
+        let audioElement = document.getElementById("error")
+        audioElement.play();
+        head.innerHTML=`<span>Time Up</span><br>Your Score Level is: ${lvl}<br><span>Better Luck Next Time🤦‍♂️</span>`
+        startValue=true
+        maxscore.push(lvl)
+          let max=Math.max(...maxscore)
+          let btn=document.querySelector(".btn")
+          btn.classList.remove("btn-success")
+          btn.classList.add("btn-danger")
+          btn.innerText="Restart"
+          let con=document.querySelector(".con")
+          let h2=document.querySelector("h2")
+          h2.innerText="HIGH SCORE LVL IS: "+max
+          con.append(h2)
+          lvl=0
+          gamesqe=[]
+          usersqe=[]
+      }
+    }
+
 // main logic
 function checkSequence() {
   for (let i = 0; i < usersqe.length; i++) {
@@ -71,23 +80,20 @@ user.addEventListener("click",function(e){
     if (checkSequence()){
     if (usersqe.length===gamesqe.length){
           lvl++
-          if(lvl>5){
+          if(lvl>4){
             let p=document.querySelector("p")
-            p.innerHTML="<b>AFTER LVL 5<br>3sec for Per Click<br>🤡</b>"
+            p.innerHTML="<b>AFTER LVL 4<br>3sec for Per Click<br>🤡</b>"
             p.style.color="rgb(0, 255, 30)"
             let btn=document.querySelector(".btn")
             btn.insertAdjacentElement("beforebegin",p)
           }
-          if (lvl>=8&&lvl<15) {
-            head.innerHTML="LEVEl: "+lvl+"<br>WOW, Keep It Up 😁👍🔥"
-          }
-          else if (lvl>=15&&lvl<18) {
+          if (lvl>=5&&lvl<8) {
             head.innerHTML="LEVEl: "+lvl+"<br>Great, Your Memoery Skills Are Incredible! 😵👌"
           }
-          else if (lvl>=18&&lvl<20) {
+          else if (lvl>=8&&lvl<10) {
             head.innerHTML="LEVEl: "+lvl+"<br>Your Are Genius Person 🤯😵‍💫"
           }
-          else if (lvl>=20) {
+          else if (lvl>=12) {
             let audioElement = document.getElementById("win")
             audioElement.play();
             head.innerHTML="LEVEl: "+lvl+"<br><span2>🎉🤡WIN The Game😎😍🎉</span2><br>Press Start Button To Start The New Game"
@@ -105,7 +111,6 @@ user.addEventListener("click",function(e){
             lvl=0
             gamesqe=[]
             usersqe=[]
-            clearInterval(T)
           }
           else{
             head.innerText="LEVEl: "+lvl
