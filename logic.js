@@ -4,7 +4,7 @@ let maxscore=[]
 let lvl=0
 let startValue=true
 let head=document.querySelector("h4")
-let color=["NONE","green","red","yellow","blue"]
+let color=["green","green","red","yellow","blue","blue"]
 let user=document.querySelector(".con-of-box")
 var second=0
 
