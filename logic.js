@@ -33,7 +33,7 @@ btn.addEventListener("click",function(e){
 
     // Check sec for conditions
     let Check=()=>{
-      if(second>3&&lvl>4){
+      if(second>3&&lvl>5){
         let audioElement = document.getElementById("error")
         audioElement.play();
         head.innerHTML=`<span>Time Up</span><br>Your Score Level is: ${lvl}<br><span>Better Luck Next Time🤦‍♂️</span>`
