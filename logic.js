@@ -8,6 +8,15 @@ let color=["NONE","green","red","yellow","blue"]
 let user=document.querySelector(".con-of-box")
 var second=0
 
+// level increment after win
+var a=4
+var b=5
+var c=8
+var d=10
+var f=12
+let maxlvl=document.querySelector("#maxlvl")
+maxlvl.innerHTML=`Reach to Max Lvl (${f})`
+// *****
 let btn=document.querySelector(".btn")
 btn.addEventListener("click",function(e){
   if (startValue==true) {
@@ -80,17 +89,20 @@ user.addEventListener("click",function(e){
     if (checkSequence()){
     if (usersqe.length===gamesqe.length){
           lvl++
-          if(lvl>4){
+          if(lvl>a){
             let p=document.querySelector("p")
-            p.innerHTML="<b>AFTER LVL 4<br>3sec for Per Click<br>🤡</b>"
+            p.innerHTML=`<b>AFTER LVL ${a}<br>3sec for Per Click<br>🤡</b>`
             p.style.color="rgb(0, 255, 30)"
             let btn=document.querySelector(".btn")
             btn.insertAdjacentElement("beforebegin",p)
           }
-          if (lvl>=5&&lvl<8) {
+          if (lvl>=b&&lvl<c) {
+            head.innerHTML="LEVEl: "+lvl+"<br>WOW, Keep It Up🔥👍"
+          }
+          else if(lvl>=c&&lvl<d){
             head.innerHTML="LEVEl: "+lvl+"<br>Great, Your Memoery Skills Are Incredible! 😵👌"
           }
-          else if (lvl>=8&&lvl<10) {
+          else if (lvl>=d&&lvl<f) {
             head.innerHTML="LEVEl: "+lvl+"<br>Your Are Genius Person 🤯😵‍💫"
           }
           else if (lvl>=12) {
@@ -111,6 +123,12 @@ user.addEventListener("click",function(e){
             lvl=0
             gamesqe=[]
             usersqe=[]
+            a+=1
+            b+=2
+            c+=2
+            d+=2
+            f+=2
+            maxlvl.innerHTML=`Reach to Max Lvl (${f})`
           }
           else{
             head.innerText="LEVEl: "+lvl
