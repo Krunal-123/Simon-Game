@@ -54,9 +54,9 @@ btn.addEventListener("click",function(e){
           btn.classList.add("btn-danger")
           btn.innerText="Restart"
           let con=document.querySelector(".con")
-          let h2=document.querySelector("h2")
-          h2.innerText="HIGH SCORE LVL IS: "+max
-          con.append(h2)
+          let h3=document.querySelector("h3")
+          h3.innerText="HIGH SCORE LVL IS: "+max
+          con.append(h3)
           lvl=0
           gamesqe=[]
           usersqe=[]
@@ -113,9 +113,9 @@ user.addEventListener("click",function(e){
             maxscore.push(lvl)
             let max=Math.max(...maxscore)
             let con=document.querySelector(".con")
-            let h3=document.querySelector("h3")
-            h3.innerText="WIN SCORE LEVEL IS: "+max
-            con.append(h3)
+            let h2=document.querySelector("h2")
+            h2.innerText="WIN SCORE LEVEL IS: "+max
+            con.append(h2)
             let btn=document.querySelector(".btn")
             btn.classList.remove("btn-danger")
             btn.classList.add("btn-success")
